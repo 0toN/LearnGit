@@ -1,0 +1,67 @@
+总结于Git学习网站： 
+https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+
+
+1.多人协作开发时：
+
+master分支是主分支，因此要时刻与远程库同步；
+
+dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程库同步；
+
+bug分支只用于在本地修复bug，一般情况下无需推到远程库
+
+feature分支是用于新功能的开发，是否推到远程库，取决于你是否和你的小伙伴合作在上面开发。
+
+
+
+2.常用命令
+
+git init  ：创建版本库
+
+pwd   ：显示当前所在目录
+
+git add "filename"：添加文件进暂存区
+
+git commit "filename"：提交暂存区中的所有被修改的文件
+
+git status：查看当前版本库的状态
+
+git diff：查看difference，修改的内容
+
+git log ：查看历史提交记录（从近到远）
+
+git reset --hard  要回退的版本：回退到某一个版本(HEAD表示当前版本，HEAD^表示上一个版本。或者输入要回退版本的commit id)，该命令既可以回退版本也可以撤销暂存区的修改
+
+git checkout -- filename ：撤销全部文件在工作区或暂存区的修改
+
+git rm filename 
+rm  filename
+git commit -m ""     ：删除文件
+
+
+ssh-keygen -t rsa -C "youremail@example.com"  在用户目录创建SSH Key
+
+git remote add origin https://github.com/0toN/GitTest.git ：关联GitHub远程库
+git push -u origin master：将本地内容推送到远程库（-u 参数仅在第一次推送时使用）
+
+git clone 地址 ：克隆远程库到本地（地址可以使用SSH协议或http协议） 
+
+git branch 分支名：创建分支
+git checkout 分支名：切换分支
+git checkout  -b 分支名：创建并切换到该分支
+
+git merge 分支名 ：合并指定分支到当前分支
+
+git branch -d 分支名：删除分支
+
+git stash ：存储当前分支的工作现场
+
+git stash pop / git stash apply  ：恢复工作现场
+
+git push origin 分支名 ：从本地推动分支到远程库，如果推送失败，先用git pull 抓取远程的新提交
+
+git checkout -b 分支名 origin/分支名    :在本地创建和远程库对应的分支，名称最好一致
+
+git branch --set-upstream-to=origin/分支名   分支名   ：建立本地分支和远程分支的关联
+
+git tag 标签名 ：打标签（默认在HEAD处，也可以指定一个commit id）
